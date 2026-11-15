@@ -1,0 +1,8 @@
+09:00:05;S01;Passive;Obs1
+09:00:10;S02;active;Obs1
+09:00:15;S01;Constructive
+25:99:00;S03;Interactive;Obs1
+09:00:25;;Passive;Obs1
+09:00:30;S02;Sleeping;Obs1
+09:00:35;S03; Active ;Obs1
+this line is garbage

@@ -1,0 +1,5 @@
+09:00:05;S01;Passive;Obs1
+09:00:10;S02;Active;Obs1
+09:00:15;S01;Constructive;Obs1
+09:00:20;S03;Interactive;Obs1
+09:00:25;S02;Passive;Obs1
