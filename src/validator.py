@@ -69,13 +69,24 @@ def validate_line(line):
 
 
 if __name__ == "__main__":
-    encoding, lines = read_lines("data/sample_messy.txt")
-    counts = {"Valid": 0, "Warning": 0, "Error": 0}
+    from database import connect, save_results
 
+    filename = "data/sample_messy.txt"
+    encoding, lines = read_lines(filename)
+
+    results = []
     for number, line in enumerate(lines, start=1):
-        result = validate_line(line)
-        counts[result["status"]] += 1
-        print(f"Line {number}: {result['status']} {result['messages']}")
+        results.append((number, line, validate_line(line)))
 
-    print()
-    print(counts)
+    conn = connect()
+    file_id = save_results(conn, filename, encoding, results)
+    print(f"Saved {len(results)} lines to the database (file id {file_id})")
+
+    # Read back with SQL to prove it worked
+    rows = conn.execute(
+        "SELECT status, COUNT(*) FROM observations "
+        "WHERE file_id = ? GROUP BY status",
+        (file_id,),
+    ).fetchall()
+    print(rows)
+    conn.close()
