@@ -89,4 +89,8 @@ if __name__ == "__main__":
         (file_id,),
     ).fetchall()
     print(rows)
+    from exporter import export_csv
+
+    table = export_csv(conn, file_id, "output/report.csv")
+    print(f"Report saved to output/report.csv ({len(table)} rows)")
     conn.close()
