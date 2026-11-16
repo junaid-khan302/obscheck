@@ -18,7 +18,7 @@ def read_lines(file_path):
 
 
 if __name__ == "__main__":
-    encoding, lines = read_lines("data/sample_messy.txt")
+    encoding, lines = read_lines("data/sample_valid.txt")
     print(f"Detected encoding: {encoding}")
     print(f"Number of lines: {len(lines)}")
     for number, line in enumerate(lines, start=1):
