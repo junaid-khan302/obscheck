@@ -13,5 +13,5 @@ def export_csv(conn, file_id, output_path):
     table = pd.read_sql_query(query, conn, params=(file_id,))
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-    table.to_csv(output_path, index=False, sep=";", encoding="utf-8-sig")
+    table.to_csv(output_path, index=False, encoding="utf-8-sig")
     return table
