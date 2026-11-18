@@ -13,6 +13,7 @@ Personal learning project, inspired by a classroom-observation use case.
 - Three result levels: Valid, Warning, Error
 - Keeps the original raw line unchanged in the database
 - Exports a CSV report
+- Exports a colour-coded Excel report
 - Unit tests with pytest
 
 ## Input format
@@ -48,7 +49,7 @@ Allowed activities: Passive, Active, Constructive, Interactive.
 
 ## Tech
 
-Python, pandas, SQLite, charset-normalizer, pytest
+Python, pandas, openpyxl, SQLite, charset-normalizer, pytest
 
 ## What I learned
 
@@ -70,4 +71,4 @@ a Warning (fixable) or an Error (unusable).
 - **Debugging:** Excel on my PC splits CSV columns at commas, not semicolons,
   so I reverted my first export setting after testing it.
 
-Next I want to add an Excel export and charts with Matplotlib.
+Next I want to add charts with Matplotlib.
