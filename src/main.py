@@ -4,6 +4,7 @@ from reader import read_lines
 from validator import validate_line
 from database import connect, save_results
 from exporter import export_csv, export_excel
+from charts import make_status_chart
 
 def main():
     parser = argparse.ArgumentParser(
@@ -15,6 +16,9 @@ def main():
     )
     parser.add_argument(
         "--xlsx", default="output/report.xlsx", help="where to write the Excel report"
+    )
+    parser.add_argument(
+        "--chart", default="output/chart.png", help="where to write the chart (PNG)"
     )
     args = parser.parse_args()
 
@@ -28,6 +32,7 @@ def main():
     file_id = save_results(conn, args.file, encoding, results)
     table = export_csv(conn, file_id, args.out)
     export_excel(conn, file_id, args.xlsx)
+    make_status_chart(table, args.chart, title=f"Results for {args.file}")
     conn.close()
 
     counts = table["status"].value_counts()
@@ -37,7 +42,7 @@ def main():
         print(f"  {status}: {counts.get(status, 0)}")
     print(f"Report saved to {args.out}")
     print(f"Excel report saved to {args.xlsx}")
-
+    print(f"Chart saved to {args.chart}")
 
 if __name__ == "__main__":
     main()

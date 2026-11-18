@@ -15,6 +15,10 @@ Personal learning project, inspired by a classroom-observation use case.
 - Exports a CSV report
 - Exports a colour-coded Excel report
 - Unit tests with pytest
+- Draws a chart of the results with Matplotlib
+## Example result
+
+![Validation results](docs/chart.png)
 
 ## Input format
 
@@ -49,7 +53,7 @@ Allowed activities: Passive, Active, Constructive, Interactive.
 
 ## Tech
 
-Python, pandas, openpyxl, SQLite, charset-normalizer, pytest
+Python, pandas, openpyxl, SQLite, charset-normalizer, pytest, matplotlib
 
 ## What I learned
 
@@ -71,4 +75,4 @@ a Warning (fixable) or an Error (unusable).
 - **Debugging:** Excel on my PC splits CSV columns at commas, not semicolons,
   so I reverted my first export setting after testing it.
 
-Next I want to add charts with Matplotlib.
+Next I want to add a simple window (GUI) with PySide6
